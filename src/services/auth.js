@@ -1,16 +1,15 @@
+
 export const login = (email, senha) => {
-    // api.post("/login") , (login: email, passowrd: senha)
+    //return await api.post("/login", {login: email, senha: senha})
     return new Promise(resolve => {
         setTimeout(() => {
             resolve({
-                token: "ahushuahuhauhuhsuahush.ahduabydsdvb",
+                token: "sadksjdajsdkljsadksajdlkjsddfdçjdçlk", 
                 user: {
-                    name: "junior",
-                    email: "junior"
+                    name: "Junior",
+                    email: "jr@gmail.com"
                 }
             })
-
         }, 1000)
     })
-
 }

@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import Routes from './src/Routes';
+import { AuthProvider } from './src/contexts/AuthContexts';
 
 
 
@@ -9,7 +10,9 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      <Routes />
+      <AuthProvider>
+        <Routes />
+      </AuthProvider>
     </NavigationContainer>
   );
 };

@@ -2,13 +2,18 @@ import { StyleSheet, Text, View, Button, TextInput } from "react-native"
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useState } from "react";
 import { login } from "../../services/auth";
+import { useContext } from "react";
+import AuthContext from "../../contexts/AuthContexts";
 
 const Login = () => {
     const [userName, setUserName] = useState("")
     const [passoword, setPassoword] = useState("")
+    const { logado } = useContext(AuthContext)
+
+    console.log("logado contexto", logado)
 
     const handleLogin = async () => {
-        const response = await Login();
+        const response = await login(userName, passoword);
         console.log(response)
     }
 
