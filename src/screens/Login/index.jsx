@@ -8,13 +8,13 @@ import AuthContext from "../../contexts/AuthContexts";
 const Login = () => {
     const [userName, setUserName] = useState("")
     const [passoword, setPassoword] = useState("")
-    const { logado } = useContext(AuthContext)
+    const { loginContext } = useContext(AuthContext)
 
-    console.log("logado contexto", logado)
 
     const handleLogin = async () => {
-        const response = await login(userName, passoword);
-        console.log(response)
+        if (userName != "" && passoword != "") {
+            loginContext();
+        }
     }
 
     return (
