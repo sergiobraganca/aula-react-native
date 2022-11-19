@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { RotasPublicas } from './src/Routes/RotasPublicas';
+import Routes from './src/Routes';
 
 
 
@@ -9,7 +9,7 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      <RotasPublicas />
+      <Routes />
     </NavigationContainer>
   );
 };
