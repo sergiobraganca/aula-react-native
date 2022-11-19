@@ -20,8 +20,8 @@ const Login = () => {
     return (
         <View style={styles.container}>
             <Text>Login</Text>
-            <TextInput style={styles.textImput} placeholder="    INSIRA SEU LOGIN" onChange={setUserName} valeu={userName} />
-            <TextInput style={styles.textImput} placeholder="    INSIRA SUA SENHA" onChange={setPassoword} valeu={passoword} />
+            <TextInput style={styles.textImput} placeholder="    INSIRA SEU LOGIN" onChange={setUserName} value={userName} />
+            <TextInput style={styles.textImput} placeholder="    INSIRA SUA SENHA" onChange={setPassoword} value={passoword} />
             <Button title="ENTRAR" onPress={() => handleLogin()} />
         </View>
     );
