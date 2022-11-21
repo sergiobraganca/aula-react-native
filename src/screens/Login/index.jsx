@@ -1,7 +1,5 @@
 import { StyleSheet, Text, View, Button, TextInput } from "react-native"
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useState } from "react";
-import { login } from "../../services/auth";
 import { useContext } from "react";
 import AuthContext from "../../contexts/AuthContexts";
 

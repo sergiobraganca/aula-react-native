@@ -1,14 +1,27 @@
-import { RotasPrivadas } from "./RotasPrivadas"
 import { RotasPublicas } from "./RotasPublicas"
+import { useContext } from "react"
+import AuthContext from "../contexts/AuthContexts"
+import { RotasPrivadas } from "./RotasPrivadas"
+import { ActivityIndicator, View } from "react-native"
 
 
 const Routes = () => {
- return (
-    <>
-    {/* <RotasPrivadas />  */}
-    <RotasPublicas />
-    </>
- )
+   const { logado, loading } = useContext(AuthContext)
+
+   if (loading) return (
+      <View>
+         <ActivityIndicator />
+      </View>
+   )
+   return (
+      <>
+         {logado ? <RotasPrivadas /> : <RotasPublicas />}
+
+      </>
+
+   )
+
+
 }
 export default Routes
 

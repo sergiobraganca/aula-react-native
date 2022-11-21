@@ -1,5 +1,5 @@
 
-export const login = (email, senha) => {
+export const login = (userName, passoword) => {
     //return await api.post("/login", {login: email, senha: senha})
     return new Promise(resolve => {
         setTimeout(() => {
