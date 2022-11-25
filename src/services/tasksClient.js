@@ -3,7 +3,7 @@ import api from "./api";
 export const getTasks = async () => {
     try {
         const { data } = await api.get("/tasks")
-        console.log(data)
+        // console.log(data)
         return data
     } catch (e) {
         console.log(e)

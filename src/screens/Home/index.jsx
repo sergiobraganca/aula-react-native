@@ -1,19 +1,23 @@
-import React, { useState, useEffect, useContext } from 'react';
+import {useIsFocused} from '@react-navigation/native';
+import React, {useState, useEffect, useContext} from 'react';
 import {
     View,
     Text,
     StyleSheet,
     FlatList,
-    StatusBar, Button
+    StatusBar,
+    Button
 } from 'react-native';
 import Card from '../../components/Card';
 import AuthContext from '../../contexts/AuthContexts';
-import { getTasks } from '../../services/tasksClient';
+import {getTasks} from '../../services/tasksClient';
 
 
-export const Home = ({ navigation  }) => {
+export const Home = ({navigation}) => {
     const [tasks, setTasks] = useState([])
-    const { logoutContext } =  useContext(AuthContext)
+    const {logoutContext} = useContext(AuthContext)
+    const isFocused = useIsFocused();
+
 
     const fetchData = async () => {
         const taskList = await getTasks();
@@ -21,19 +25,25 @@ export const Home = ({ navigation  }) => {
     }
 
     useEffect(() => {
-        fetchData()
-    }, [])
+        if (isFocused) {
+            fetchData()
+        }
+    }, [isFocused])
 
 
     return (
-        <View style={styles.container}>
-            <StatusBar style="auto" />
-
-            <FlatList  data={tasks} keyExtractor={item => item.id}  renderItem={({item}) => <Card item={item}/> }/>
-            <Button title='Detalhes'  onPress={() => navigation.navigate('Detalhes')}/>
-            <Button title='LOGOUT'  onPress={logoutContext}/>
-
-
+        <View style={
+            styles.container
+        }>
+            <StatusBar style="auto"/>
+            <FlatList data={tasks}
+                keyExtractor={
+                    item => item.id
+                }
+                renderItem=
+                {({item}) => <Card item={item}/> }/>
+            <Button title='LOGOUT'
+                onPress={logoutContext}/>
         </View>
     )
 }

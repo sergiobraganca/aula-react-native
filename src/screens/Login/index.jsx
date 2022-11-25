@@ -1,26 +1,44 @@
-import { StyleSheet, Text, View, Button, TextInput } from "react-native"
-import { useState } from "react";
-import { useContext } from "react";
+import {
+    StyleSheet,
+    Text,
+    View,
+    Button,
+    TextInput
+} from "react-native"
+import {useState} from "react";
+import {useContext} from "react";
 import AuthContext from "../../contexts/AuthContexts";
+
 
 const Login = () => {
     const [userName, setUserName] = useState("")
-    const [passoword, setPassoword] = useState("")
-    const { loginContext } = useContext(AuthContext)
+    const [password, setPassword] = useState("")
+    const {loginContext} = useContext(AuthContext)
 
 
     const handleLogin = async () => {
-        if (userName != "" && passoword != "") {
+        if (userName != "" && password != "") {
             loginContext();
         }
     }
 
     return (
-        <View style={styles.container}>
-            <Text>Login</Text>
-            <TextInput style={styles.textImput} placeholder="    INSIRA SEU LOGIN" onChange={setUserName} value={userName} />
-            <TextInput style={styles.textImput} placeholder="    INSIRA SUA SENHA" onChange={setPassoword} value={passoword} />
-            <Button title="ENTRAR" onPress={() => handleLogin()} />
+        <View style={
+            styles.container
+        }>
+            <View style={styles.login}>
+<View>
+
+                <Text style={styles.text}>Login</Text>
+                <TextInput style={styles.textInput} placeholder="    INSIRA SEU LOGIN" onChange={setUserName} value={userName}/>
+                <TextInput style={styles.textInput } placeholder="    INSIRA SUA SENHA"onChange={setPassword} value={password}/>
+</View>
+<View>
+
+                <Button title="ENTRAR" onPress={ () => handleLogin() }/>
+</View>
+            </View>
+
         </View>
     );
 };
@@ -28,15 +46,26 @@ const Login = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: "darkblue",
         justifyContent: 'space-around',
         alignItems: 'center',
-        alignContent: "center",
+        alignContent: "center"
     },
-    textImput: {
+    login: {
+        width: "80%"
+    },
+    textInput: {
         borderWidth: 1,
+        margin: 10,
+        width: 320,
+        justifyContent: "center",
+        backgroundColor: 'white',
         width: "80%",
         alignItems: "center",
-        justifyContent: 'center',
+        justifyContent: 'center'
+    },
+    text: {
+        color: 'white'
     }
 });
 
